@@ -14,30 +14,46 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Autowired
 	private ClienteDao clienteDao;
-	
+
+	@Transactional(readOnly=true)
 	@Override
-	@Transactional(readOnly = true)
-	public List<Cliente> findAll() {
-		return (List<Cliente>) clienteDao.findAll();
+	public List<Cliente> getClientes() {
+		return clienteDao.findAll();
 	}
 
+	@Transactional
 	@Override
-	@Transactional(readOnly = true)
-	public Cliente findById(Long id) {
+	public Cliente getCliente(Long id) {
 		return clienteDao.findById(id).orElse(null);
 	}
-
-	@Override
+	
 	@Transactional
-	public Cliente save(Cliente cliente) {
+	@Override
+	public Cliente postCliente(Cliente cliente) {
 		return clienteDao.save(cliente);
 	}
 
-	@Override
 	@Transactional
-	public void delete(Long id) {
-		clienteDao.deleteById(id);
+	@Override
+	public Cliente putCliente(Cliente cliente, long id) {
+		Cliente toUpdateCliente = getCliente(id);
+		
+		if (toUpdateCliente==null) return null;
+		
+		toUpdateCliente.setNombre(cliente.getNombre());
+		toUpdateCliente.setApellidos(cliente.getApellidos());
+		toUpdateCliente.setSexo(cliente.getSexo());
+		toUpdateCliente.setTelefono(cliente.getTelefono());
+		return this.clienteDao.save(toUpdateCliente);
 	}
+
+	@Transactional
+	@Override
+	public void deleteCliente(long id) {
+		this.clienteDao.deleteById(id);
+		
+	}
+	
 
 	
 }

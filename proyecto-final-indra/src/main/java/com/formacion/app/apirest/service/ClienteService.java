@@ -7,12 +7,14 @@ import com.formacion.app.apirest.entity.Cliente;
 
 public interface ClienteService {
 
-public List<Cliente> findAll();
+	List<Cliente> getClientes();
 	
-	public Cliente findById(Long id);
+	Cliente getCliente(Long id);
 	
-	public Cliente save(Cliente cliente);
+	Cliente postCliente(Cliente cliente);
 	
-	public void delete(Long id);
+	Cliente putCliente(Cliente cliente, long id);
+	
+	void deleteCliente(long id);
 	
 }
