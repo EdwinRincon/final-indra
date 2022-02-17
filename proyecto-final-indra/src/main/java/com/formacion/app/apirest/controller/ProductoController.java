@@ -28,7 +28,7 @@ public class ProductoController {
 	public String formularioProductos(Model modelo) {
 		
 		Producto newProducto = new Producto();
-		modelo.addAttribute("empleadoKey", newProducto);
+		modelo.addAttribute("productoKey", newProducto);
 		return "productos/nuevo_producto";
 	}
 	
@@ -58,7 +58,7 @@ public class ProductoController {
 		return "redirect:/productos";	
 	}
 	
-	@GetMapping("/productos/borrar/{id}")
+	@GetMapping("/productos/eliminar/{id}")
 	public String eliminarProducto(@PathVariable Long id) {
 		
 		servicio.delete(id);
