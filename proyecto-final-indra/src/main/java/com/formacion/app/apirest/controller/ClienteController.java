@@ -48,7 +48,7 @@ public class ClienteController {
 	@GetMapping("/editar/{id}")
 	public String formularioEditCliente(@PathVariable long id,Model modelo) {
 		modelo.addAttribute("clienteKey", clienteService.getCliente(id));
-		return "cliente/editar_cliente";
+		return "clientes/editar_cliente";
 	}
 	
 	
