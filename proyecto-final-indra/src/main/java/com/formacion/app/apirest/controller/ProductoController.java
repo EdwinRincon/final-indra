@@ -21,7 +21,7 @@ public class ProductoController {
 	public String listarProductos(Model model) {
 		
 		model.addAttribute("productos", servicio.findAll());
-		return "productos";
+		return "productos/productos";
 	}
 	
 	@GetMapping("/productos/nuevo")
@@ -29,21 +29,21 @@ public class ProductoController {
 		
 		Producto newProducto = new Producto();
 		modelo.addAttribute("empleadoKey", newProducto);
-		return "nuevo_producto";
+		return "productos/nuevo_producto";
 	}
 	
 	@PostMapping("/productos")
 	public String guardarProducto(@ModelAttribute("productoKey") Producto producto) {
 		
 		servicio.save(producto);
-		return "redirect:/producto";
+		return "redirect:/productos";
 	}
 	
 	@GetMapping("/productos/editar/{id}")
 	public String formularioEdicionProducto(@PathVariable Long id, Model modelo) {
 		
 		modelo.addAttribute("productoKey", servicio.findById(id));
-		return "editar_producto";		
+		return "productos/editar_producto";		
 	}
 	
 	@PostMapping("/productos/editar/{id}")
@@ -55,7 +55,7 @@ public class ProductoController {
 		productoEdit.setP_unitario(producto.getP_unitario());
 		productoEdit.setExistencias(producto.getExistencias());
 		servicio.save(productoEdit);
-		return "redirect:/empleados";	
+		return "redirect:/productos";	
 	}
 	
 	@GetMapping("/productos/borrar/{id}")

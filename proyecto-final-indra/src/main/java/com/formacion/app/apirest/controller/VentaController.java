@@ -15,7 +15,7 @@ public class VentaController {
 	@GetMapping( {"/ventas","/"} )
 	public String listarVentas(Model model) {
 		model.addAttribute("ventas",servicio.findAll());
-		return "ventas";
+		return "ventas/ventas";
 	}
 
 }
