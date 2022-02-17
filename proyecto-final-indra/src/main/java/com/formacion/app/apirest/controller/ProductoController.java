@@ -26,7 +26,7 @@ public class ProductoController {
 		return "productos";
 	}
 	
-	@GetMapping("productos/nuevo")
+	@GetMapping("/productos/nuevo")
 	public String formularioProductos(Model modelo) {
 		
 		Producto newProducto = new Producto();
@@ -34,7 +34,7 @@ public class ProductoController {
 		return "nuevo_producto";
 	}
 	
-	@PostMapping("productos")
+	@PostMapping("/productos")
 	public String guardarProducto(@ModelAttribute("productoKey") Producto producto) {
 		
 		servicio.save(producto);
