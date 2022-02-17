@@ -58,7 +58,10 @@
 				</div>
 				<div class="form-group">
 					<label>Sexo:</label>
-					<input type="text" name="sexo" th:field="*{sexo}" class="form-control">
+						<select th:field="*{sexo}" class="form-select">
+							<option th:value="hombre" th:text="Hombre"></option>
+							<option th:value="mujer" th:text="Mujer"></option>
+						</select>
 				</div>
 				<div class="form-group">
 					<label>Teléfono:</label>
@@ -71,7 +74,7 @@
 		</div>
 	</div>
 	<div th:if="${clientes == null or clientes.empty}" class="container">
-	No hay personas para mostrar
+	No hay clientes para mostrar
 	</div>
 
 </body>
