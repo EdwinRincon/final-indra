@@ -27,14 +27,14 @@ public class VentasControllerRest {
 	@Autowired
 	private VentaService servicio;
 	
-	@GetMapping ("/ventas")
+	@GetMapping ("/ventasrest")
 	public List<Venta> venta(){
 		
 		return servicio.findAll();
 	}
 
 	
-	@GetMapping("/ventas/{id}")
+	@GetMapping("/ventasrest/{id}")
 	public ResponseEntity<?> ventaShow(@PathVariable Long id){
 		Venta venta = null;
 		Map<String, Object> response = new HashMap<>();
@@ -58,7 +58,7 @@ public class VentasControllerRest {
 	}
 	
 	
-	@PostMapping("/ventas")
+	@PostMapping("/ventasrest")
 	public ResponseEntity<?> saveVenta(@RequestBody Venta venta) {
 		Venta ventaNew = null;
 		Map<String, Object> response = new HashMap<>();
@@ -79,7 +79,7 @@ public class VentasControllerRest {
 	}
 	
 	
-	@PutMapping("/ventas/{id}")
+	@PutMapping("/ventasrest/{id}")
 	public ResponseEntity<?> updateVenta(@RequestBody Venta venta, @PathVariable Long id) {
 		
 		Venta ventaActual = servicio.findById(id);
@@ -109,7 +109,7 @@ public class VentasControllerRest {
 	
 
 	
-	@DeleteMapping("/ventas/{id}")
+	@DeleteMapping("/ventasrest/{id}")
 	public ResponseEntity<?> deleteVenta(@PathVariable Long id) {
 		
 		Venta ventaBorrado = servicio.findById(id);

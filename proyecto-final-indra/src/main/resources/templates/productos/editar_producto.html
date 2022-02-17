@@ -40,14 +40,13 @@
 		<h1>Editar Producto</h1>
 		<p>CRUD</p>
 	</div>
-	<div class="container my-2">
-	<a class="btn btn-info" th:href=@{/productos/nuevo}>Nuevo Cliente <svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-</svg></a>
-	</div>
-	<div th:if="${productos != null and !productos.empty}">
-		<div class="card-body">
-			<form th:action="@{/productos/editar/{id}(id=${productoKey.id})}" method="POST" th:object="${productoKey}">
+		<div class="container mt-2">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1>Editar proyecto</h1>
+				<div class="card-body">
+					<form th:action="@{/productos/editar/{id}(id=${productoKey.id})}" method="POST" th:object="${productoKey}">
 				<div class="form-group">
 					<label>Nombre:</label>
 					<input type="text" name="nombre" th:field="*{nombre}" class="form-control">
@@ -68,11 +67,9 @@
 					<button class="btn btn-success">Guardar</button>
 				</div>
 			</form>
+
+			</div>
 		</div>
-	</div>
-	<div th:if="${productos == null or productos.empty}" class="container">
-	No hay personas para mostrar
-	</div>
 
 </body>
 
