@@ -37,35 +37,35 @@
 	</nav>
 
 	<div class="mt-4 p-5 bg-primary text-white rounded container">
-		<h1>Secci&oacute;n Clientes</h1>
+		<h1>Secci&oacute;n Productos</h1>
 		<p>CRUD</p>
 	</div>
 	<div class="container my-2">
-	<a class="btn btn-info" th:href=@{/clientes/nuevo}>Nuevo Cliente <svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	<a class="btn btn-info" th:href=@{/productos/nuevo}>Nuevo Producto <svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
 </svg></a>
 	</div>
-	<div th:if="${clientes != null and !clientes.empty}">
+	<div th:if="${productos != null and !productos.empty}">
 		<table class="table table-striped container">
 		<thead>
 			<tr>
 				<th>Nombre</th>
-				<th>Apellidos</th>
-				<th>Sexo</th>
-				<th>Telefono</th>
+				<th>Descripcion</th>
+				<th>Precio Unitario</th>
+				<th>Existencias</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="cliente: ${clientes}">
-				<td th:text="${cliente.nombre}"></td>
-				<td th:text="${cliente.apellidos}"></td>
-				<td th:text="${cliente.sexo}"></td>
-				<td th:text="${cliente.telefono}"></td>
-			    <td><a th:href="@{/clientes/editar/}+${cliente.id}" type="button" class="btn btn-warning"><svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<tr th:each="producto: ${productos}">
+				<td th:text="${producto.nombre}"></td>
+				<td th:text="${producto.descripcion}"></td>
+				<td th:text="${producto.p_unitario}"></td>
+				<td th:text="${producto.existencias}"></td>
+			    <td><a th:href="@{/productos/editar/}+${producto.id}" type="button" class="btn btn-warning"><svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
 </svg></a>
-			    <a th:href="@{/clientes/eliminar/}+${cliente.id}" type="button" class="btn btn-danger"><svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			    <a th:href="@{/productos/eliminar/}+${producto.id}" type="button" class="btn btn-danger"><svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 </svg></a>
 			    </td>
@@ -73,8 +73,8 @@
 		</tbody>
 	</table>
 	</div>
-	<div th:if="${clientes == null or clientes.empty}" class="container">
-	No hay clientes para mostrar
+	<div th:if="${productos == null or productos.empty}" class="container">
+	No hay productos para mostrar
 	</div>
 
 </body>
