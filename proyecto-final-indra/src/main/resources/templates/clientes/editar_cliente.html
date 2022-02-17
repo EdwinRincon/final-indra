@@ -28,9 +28,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active"	aria-current="page" th:href=@{/clientes}>Clientes</a></li>
-					<li class="nav-item"><a class="nav-link active"	aria-current="page" th:href=@{/productos}>Productos</a></li>
-					<li class="nav-item"><a class="nav-link active"	aria-current="page" th:href=@{/ventas}>Ventas</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href=@{/clientes}>Clientes</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href=@{/productos}>Productos</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href=@{/ventas}>Ventas</a></li>
 				</ul>
 			</div>
 		</div>
@@ -40,41 +43,45 @@
 		<h1>Editar Cliente</h1>
 		<p>CRUD</p>
 	</div>
-	<div class="container my-2">
-	<a class="btn btn-info" th:href=@{/clientes/nuevo}>Nuevo Cliente <svg width="24px" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-</svg></a>
-	</div>
-	<div th:if="${clientes != null and !clientes.empty}">
-		<div class="card-body">
-			<form th:action="@{/clientes/editar/{id}(id=${clienteKey.id})}" method="POST" th:object="${clienteKey}">
-				<div class="form-group">
-					<label>Nombre:</label>
-					<input type="text" name="nombre" th:field="*{nombre}" class="form-control">
+
+	<div class="container mt-2">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1>Editar proyecto</h1>
+				<div class="card-body">
+					<form th:action="@{/clientes/editar/{id}(id=${clienteKey.id})}"
+						method="POST" th:object="${clienteKey}">
+						<div class="form-group">
+							<label>Nombre:</label> <input type="text" name="nombre"
+								th:field="*{nombre}" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Apellidos:</label> <input type="text" name="apellido"
+								th:field="*{apellidos}" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Sexo:</label> <select th:field="*{sexo}"
+								class="form-select">
+								<option th:value="hombre" th:text="Hombre"></option>
+								<option th:value="mujer" th:text="Mujer"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Teléfono:</label> <input type="number" name="telefono"
+								th:field="*{telefono}" class="form-control">
+						</div>
+						<div class="form-group">
+							<div class="box-footer mt-2">
+								<button class="btn btn-success">Guardar</button>
+							</div>
+						</div>
+					</form>
+
 				</div>
-				<div class="form-group">
-					<label>Apellidos:</label>
-					<input type="text" name="apellido" th:field="*{apellido}" class="form-control">
-				</div>
-				<div class="form-group">
-					<label>Sexo:</label>
-						<select th:field="*{sexo}" class="form-select">
-							<option th:value="hombre" th:text="Hombre"></option>
-							<option th:value="mujer" th:text="Mujer"></option>
-						</select>
-				</div>
-				<div class="form-group">
-					<label>Teléfono:</label>
-					<input type="number" name="telefono" th:field="*{telefono}" class="form-control">
-				</div>
-				<div class="box-footer">
-					<button class="btn btn-success">Guardar</button>
-				</div>
-			</form>
+			</div>
+
 		</div>
-	</div>
-	<div th:if="${clientes == null or clientes.empty}" class="container">
-	No hay clientes para mostrar
 	</div>
 
 </body>
