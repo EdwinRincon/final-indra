@@ -24,9 +24,7 @@ public class Venta implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column(nullable = false)
-	private String folio;
+	private long folio;
 	@Column(nullable = false)
 	private int cantidad;
 	@Column(nullable = false)
@@ -45,13 +43,13 @@ public class Venta implements Serializable{
 	//@JoinColumn(name="departamento_id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Producto producto;
-
-	public long getId() {
-		return id;
+	
+	public long getFolio() {
+		return folio;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setFolio(long folio) {
+		this.folio = folio;
 	}
 
 	public int getCantidad() {
